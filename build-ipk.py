@@ -132,6 +132,7 @@ def build():
         f"Maintainer: {appinfo.get('vendor', 'mscha')}\n"
         f"Description: {appinfo.get('title', app_id)}\n"
         f"webOS-Package-Format-Version: 2\n"
+        f"webOS-Packager-Version: 1.12.4\n"
         f"webOS-Application-ID: {app_id}\n"
     ).encode("utf-8")
 
