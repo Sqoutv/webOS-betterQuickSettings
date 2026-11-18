@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Builds an installable webOS .ipk package (WebApp + JS Service) without ares-cli."""
 
+import hashlib
 import io
 import json
 import tarfile
@@ -102,7 +103,7 @@ def build():
         "id": app_id,
         "loc_name": appinfo.get("title", app_id),
         "package_format_version": 2,
-        "vendor": appinfo.get("vendor", "Custom"),
+        "vendor": appinfo.get("vendor", "mscha"),
         "version": version,
     }
     if service_ids:
@@ -129,7 +130,7 @@ def build():
         f"Priority: optional\n"
         f"Architecture: all\n"
         f"Installed-Size: {installed_size}\n"
-        f"Maintainer: {appinfo.get('vendor', 'Custom')}\n"
+        f"Maintainer: {appinfo.get('vendor', 'mscha')}\n"
         f"Description: {appinfo.get('title', app_id)}\n"
         f"webOS-Package-Format-Version: 2\n"
         f"webOS-Application-ID: {app_id}\n"
@@ -147,9 +148,29 @@ def build():
     ])
 
     DIST_DIR.mkdir(parents=True, exist_ok=True)
-    ipk_path = DIST_DIR / f"{app_id}_{version}_all.ipk"
+    ipk_name = f"{app_id}_{version}_all.ipk"
+    ipk_path = DIST_DIR / ipk_name
     ipk_path.write_bytes(ipk_bytes)
-    print(f"Built: {ipk_path} ({len(ipk_bytes)} bytes, services: {service_ids})")
+    sha256 = hashlib.sha256(ipk_bytes).hexdigest()
+
+    manifest = {
+        "id": app_id,
+        "version": version,
+        "type": appinfo.get("type", "web"),
+        "title": "G5 Quick Settings",
+        "appDescription": "HDR-friendly Apple Control Center quick settings overlay",
+        "iconUri": "https://raw.githubusercontent.com/Sqoutv/webOS-betterQuickSettings/main/app/largeIcon.png",
+        "sourceUrl": "https://github.com/Sqoutv/webOS-betterQuickSettings",
+        "rootRequired": True,
+        "ipkUrl": f"https://github.com/Sqoutv/webOS-betterQuickSettings/releases/download/{version}/{ipk_name}",
+        "ipkHash": {"sha256": sha256},
+        "ipkSize": len(ipk_bytes),
+    }
+    manifest_path = DIST_DIR / f"{app_id}.manifest.json"
+    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+
+    print(f"Built: {ipk_path} ({len(ipk_bytes)} bytes, sha256: {sha256}, services: {service_ids})")
+    print(f"Built: {manifest_path}")
 
 
 if __name__ == "__main__":

@@ -1,9 +1,9 @@
 {
-  "id": "de.custom.g5quicksettings.service",
+  "id": "mscha.g5quicksettings.service",
   "description": "G5 Quick Settings Root Bridge",
   "services": [
     {
-      "name": "de.custom.g5quicksettings.service",
+      "name": "mscha.g5quicksettings.service",
       "description": "G5 Quick Settings Root Bridge",
       "commands": [
         {

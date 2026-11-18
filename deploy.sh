@@ -3,7 +3,7 @@ set -euo pipefail
 
 # Packages, installs, elevates, and launches G5 Quick Settings on a rooted LG webOS TV.
 TV_IP="${1:-${TV_IP:-192.168.1.94}}"
-APP_ID="de.custom.g5quicksettings"
+APP_ID="mscha.g5quicksettings"
 SERVICE_ID="${APP_ID}.service"
 IPK_FILE="dist/${APP_ID}_1.0.0_all.ipk"
 REMOTE_IPK="/tmp/${APP_ID}_1.0.0_all.ipk"
@@ -37,7 +37,7 @@ ssh "root@${TV_IP}" "
     echo 'WARNING: elevate-service not found';
   fi;
   ls-control scan-services;
-  for pid in \$(ps | awk '/de\.custom\.g5quicksettings\.service/ && !/sh -c/ && !/awk/ {print \$1}'); do
+  for pid in \$(ps | awk '/mscha\.g5quicksettings\.service/ && !/sh -c/ && !/awk/ {print \$1}'); do
     kill \"\${pid}\" 2>/dev/null || true;
   done;
   sleep 1;

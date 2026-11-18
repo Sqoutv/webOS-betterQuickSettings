@@ -6,7 +6,7 @@
 'use strict';
 
 var Service = require('webos-service');
-var service = new Service('de.custom.g5quicksettings.service');
+var service = new Service('mscha.g5quicksettings.service');
 
 var ALLOWED_SETTINGS_METHODS = {
   getSystemSettings: true,

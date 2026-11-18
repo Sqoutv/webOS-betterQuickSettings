@@ -1,7 +1,7 @@
 {
-  "id": "de.custom.g5quicksettings",
+  "id": "mscha.g5quicksettings",
   "version": "1.0.0",
-  "vendor": "Custom",
+  "vendor": "mscha",
   "type": "web",
   "main": "index.html",
   "title": "G5 Quick",

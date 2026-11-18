@@ -1,5 +1,5 @@
 {
-  "name": "de.custom.g5quicksettings.service",
+  "name": "mscha.g5quicksettings.service",
   "version": "1.0.0",
   "description": "G5 Quick Settings Root Bridge Service",
   "main": "service.js"

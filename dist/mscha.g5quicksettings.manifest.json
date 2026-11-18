@@ -1,0 +1,15 @@
+{
+  "id": "mscha.g5quicksettings",
+  "version": "1.0.0",
+  "type": "web",
+  "title": "G5 Quick Settings",
+  "appDescription": "HDR-friendly Apple Control Center quick settings overlay",
+  "iconUri": "https://raw.githubusercontent.com/Sqoutv/webOS-betterQuickSettings/main/app/largeIcon.png",
+  "sourceUrl": "https://github.com/Sqoutv/webOS-betterQuickSettings",
+  "rootRequired": true,
+  "ipkUrl": "https://github.com/Sqoutv/webOS-betterQuickSettings/releases/download/1.0.0/mscha.g5quicksettings_1.0.0_all.ipk",
+  "ipkHash": {
+    "sha256": "d0feec2041b985994794e11aa672182a97c3a39fc22b95dca17c1332d19990a8"
+  },
+  "ipkSize": 21512
+}

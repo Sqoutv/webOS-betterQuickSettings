@@ -19,7 +19,7 @@ A fast, HDR-friendly quick settings overlay for rooted **LG OLED G5** TVs (`webO
 
 ## Structure
 - `app/` — Vanilla HTML/CSS/JS frontend (`index.html`, `styles.css`, `luna.js`, `settings-map.js`, `preferences-store.js`, `tv-controller.js`, `spatial-navigator.js`, `overlay-view.js`, `app.js`).
-- `service/de.custom.g5quicksettings.service/` — Bundled Node.js LS2 service elevated via Homebrew Channel so `WebAppMgr` can call `com.webos.settingsservice` and `com.webos.service.eim` on webOS 25.
+- `service/mscha.g5quicksettings.service/` — Bundled Node.js LS2 service elevated via Homebrew Channel so `WebAppMgr` can call `com.webos.settingsservice` and `com.webos.service.eim` on webOS 25.
 - `build-ipk.py` & `deploy.sh` — Zero-SDK `.ipk` packager and one-command SSH installer/elevator.
 
 ## Local Browser Preview
@@ -30,7 +30,7 @@ Running outside webOS enables an interactive **DEMO** mode with mocked Luna resp
 
 ## Build & Deploy (Rooted LG G5 + Homebrew Channel)
 ```bash
-python3 build-ipk.py                  # Creates dist/de.custom.g5quicksettings_1.0.0_all.ipk
+python3 build-ipk.py                  # Creates dist/mscha.g5quicksettings_1.0.0_all.ipk
 chmod +x deploy.sh && ./deploy.sh <TV_IP>
 ```
-Tip: Map `de.custom.g5quicksettings` to a remote button in **Magic Mapper** for instant access over any input.
+Tip: Map `mscha.g5quicksettings` to a remote button in **Magic Mapper** for instant access over any input.
