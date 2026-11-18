@@ -1,6 +1,6 @@
 Note: This App is completely vibe coded. I made it for my personal use primarily but tested every Feature and overlooked the code.
 
-# G5 Quick Settings (webOS 25 Overlay App)
+# Quick Settings (webOS 25 Overlay App)
 
 A fast, HDR-friendly quick settings overlay for rooted **LG OLED G5** TVs (`webOS 25`) styled after Apple Control Center.
 
