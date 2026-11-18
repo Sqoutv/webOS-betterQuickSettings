@@ -4,6 +4,13 @@ Note: This App is completely vibe coded. I made it for my personal use primarily
 
 A fast, HDR-friendly quick settings overlay for rooted **LG OLED G5** TVs (`webOS 25`) styled after Apple Control Center.
 
+## Installation (`.ipk`)
+1. Download `mscha.g5quicksettings_1.0.0_all.ipk` from [Releases](https://github.com/Sqoutv/webOS-betterQuickSettings/releases).
+2. Install it normally via **webOS Dev Manager** or the **Homebrew Channel** app on your TV — no `deploy.sh` or SSH script required.
+3. On first launch, the app automatically elevates its bundled background service (`mscha.g5quicksettings.service`) via Homebrew Channel (`org.webosbrew.hbchannel.service/exec`).
+
+Tip: Map `mscha.g5quicksettings` to a remote button in **Magic Mapper** for instant access over any input.
+
 ## Features
 - **Floating Transparent Overlay:** Opens over live HDMI/media playback (`keepAlive: true`, `<0.3s` warm relaunch via `webOSSystem.hide()`/`activate()`).
 - **HDR Paper-White Theme:** Avoids pure `#FFFFFF` glare; header toggle cycles `Paper`, `Dim`, and `Ultra` presets.
@@ -12,25 +19,24 @@ A fast, HDR-friendly quick settings overlay for rooted **LG OLED G5** TVs (`webO
 
 ## Compatibility & Requirements
 > **Tested hardware:** Only tested on a rooted **LG OLED G5 (`webOS 25`)**. Other models are untested and may behave differently.
-- **Root required:** Needs **Homebrew Channel (`elevate-service`)** for private Luna bus access. Standard LG Developer Mode alone is not sufficient (`Access denied` on `com.webos.settingsservice`).
+- **Root required:** Needs **Homebrew Channel** (root + `elevate-service`) so the bundled service can access `com.webos.settingsservice` and `com.webos.service.eim`. Standard LG Developer Mode alone is not sufficient.
 - **LG TVs (`webOS 22–25`, 2022+):** Expected to work out of the box (OLED and LCD/QNED share `backlight` and load picture/sound modes dynamically).
 - **Older LG TVs (`webOS 4–6`, 2018–2021):** Untested; `replaceChildren()` in `app/js/overlay-view.js` requires Chromium 86+ (`webOS 22+`) and would fail on older WebAppMgr engines.
 - **Third-party `webOS Hub` TVs:** Untested; likely compatible if rooted with Homebrew Channel and standard `settingsservice` / `eim` endpoints.
 
 ## Structure
 - `app/` — Vanilla HTML/CSS/JS frontend (`index.html`, `styles.css`, `luna.js`, `settings-map.js`, `preferences-store.js`, `tv-controller.js`, `spatial-navigator.js`, `overlay-view.js`, `app.js`).
-- `service/mscha.g5quicksettings.service/` — Bundled Node.js LS2 service elevated via Homebrew Channel so `WebAppMgr` can call `com.webos.settingsservice` and `com.webos.service.eim` on webOS 25.
-- `build-ipk.py` & `deploy.sh` — Zero-SDK `.ipk` packager and one-command SSH installer/elevator.
+- `service/mscha.g5quicksettings.service/` — Bundled Node.js LS2 root proxy for `com.webos.settingsservice` and `com.webos.service.eim`.
+- `build-ipk.py` & `deploy.sh` — Zero-SDK `.ipk` + Homebrew manifest packager and optional SSH deploy helper.
+
+## Build from Source & Developer Deploy
+```bash
+python3 build-ipk.py                  # Builds dist/mscha.g5quicksettings_1.0.0_all.ipk + .manifest.json
+chmod +x deploy.sh && ./deploy.sh <TV_IP>   # Optional one-command SSH install for development
+```
 
 ## Local Browser Preview
 ```bash
 python3 -m http.server -d app 8080
 ```
 Running outside webOS enables an interactive **DEMO** mode with mocked Luna responses and arrow-key navigation.
-
-## Build & Deploy (Rooted LG G5 + Homebrew Channel)
-```bash
-python3 build-ipk.py                  # Creates dist/mscha.g5quicksettings_1.0.0_all.ipk
-chmod +x deploy.sh && ./deploy.sh <TV_IP>
-```
-Tip: Map `mscha.g5quicksettings` to a remote button in **Magic Mapper** for instant access over any input.

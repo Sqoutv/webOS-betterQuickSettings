@@ -15,10 +15,18 @@ var ALLOWED_SETTINGS_METHODS = {
 };
 
 service.register('ping', function (message) {
+  var uid = typeof process.getuid === 'function' ? process.getuid() : -1;
   message.respond({
     returnValue: true,
-    uid: typeof process.getuid === 'function' ? process.getuid() : -1
+    uid: uid
   });
+  // If spawned un-elevated right after .ipk install, exit after responding so
+  // ls-hubd respawns the service as root once elevate-service has run.
+  if (uid !== 0 && uid !== -1) {
+    setTimeout(function () {
+      process.exit(0);
+    }, 50);
+  }
 });
 
 service.register('settings', function (message) {

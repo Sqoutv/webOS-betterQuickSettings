@@ -1,6 +1,9 @@
 # macOS & Editor Artifacts
 .DS_Store
 
+# Build Outputs (published via GitHub Releases)
+dist/
+
 # Local Debug Logs & Terminal Dumps
 *.log
 *Ausgabe*.txt
