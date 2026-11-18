@@ -5,6 +5,7 @@
   "type": "web",
   "main": "index.html",
   "title": "G5 Quick",
+  "appDescription": "HDR-friendly Apple Control Center quick settings overlay",
   "icon": "icon.png",
   "largeIcon": "largeIcon.png",
   "iconColor": "#16181d",

@@ -85,17 +85,16 @@ def build():
                 service_ids.append(d.name)
 
     data_entries = [
-        ("./", b"", 0o755, True),
-        ("./usr/", b"", 0o755, True),
-        ("./usr/palm/", b"", 0o755, True),
-        ("./usr/palm/applications/", b"", 0o755, True),
+        ("usr/", b"", 0o755, True),
+        ("usr/palm/", b"", 0o755, True),
+        ("usr/palm/applications/", b"", 0o755, True),
     ]
-    add_dir_tree(data_entries, APP_DIR, f"./usr/palm/applications/{app_id}")
+    add_dir_tree(data_entries, APP_DIR, f"usr/palm/applications/{app_id}")
 
     if service_ids:
-        data_entries.append(("./usr/palm/services/", b"", 0o755, True))
+        data_entries.append(("usr/palm/services/", b"", 0o755, True))
         for sid in service_ids:
-            add_dir_tree(data_entries, SERVICE_DIR / sid, f"./usr/palm/services/{sid}")
+            add_dir_tree(data_entries, SERVICE_DIR / sid, f"usr/palm/services/{sid}")
 
     # Generate packageinfo.json for appInstallService (app + bundled services)
     packageinfo = {
@@ -110,10 +109,10 @@ def build():
         packageinfo["services"] = service_ids
 
     data_entries.extend([
-        ("./usr/palm/packages/", b"", 0o755, True),
-        (f"./usr/palm/packages/{app_id}/", b"", 0o755, True),
+        ("usr/palm/packages/", b"", 0o755, True),
+        (f"usr/palm/packages/{app_id}/", b"", 0o755, True),
         (
-            f"./usr/palm/packages/{app_id}/packageinfo.json",
+            f"usr/palm/packages/{app_id}/packageinfo.json",
             (json.dumps(packageinfo, indent=2) + "\n").encode("utf-8"),
             0o644,
             False,
@@ -137,8 +136,7 @@ def build():
     ).encode("utf-8")
 
     control_tar = make_tar_gz([
-        ("./", b"", 0o755, True),
-        ("./control", control_text, 0o644, False),
+        ("control", control_text, 0o644, False),
     ])
 
     ipk_bytes = make_ar_archive([
