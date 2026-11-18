@@ -5,7 +5,7 @@ Note: This App is completely vibe coded. I made it for my personal use primarily
 A fast, HDR-friendly quick settings overlay for rooted **LG OLED G5** TVs (`webOS 25`) styled after Apple Control Center.
 
 ## Installation (`.ipk`)
-1. Download `mscha.g5quicksettings_1.0.0_all.ipk` from [Releases](https://github.com/Sqoutv/webOS-betterQuickSettings/releases).
+1. Download `mscha.g5quicksettings_1.0.1_all.ipk` from [Releases](https://github.com/Sqoutv/webOS-betterQuickSettings/releases).
 2. Install it normally via **webOS Dev Manager** or the **Homebrew Channel** app on your TV — no `deploy.sh` or SSH script required.
 3. On first launch, the app automatically elevates its bundled background service (`mscha.g5quicksettings.service`) via Homebrew Channel (`org.webosbrew.hbchannel.service/exec`).
 
@@ -31,7 +31,7 @@ Tip: Map `mscha.g5quicksettings` to a remote button in **Magic Mapper** for inst
 
 ## Build from Source & Developer Deploy
 ```bash
-python3 build-ipk.py                  # Builds dist/mscha.g5quicksettings_1.0.0_all.ipk + .manifest.json
+python3 build-ipk.py                  # Builds dist/mscha.g5quicksettings_1.0.1_all.ipk + .manifest.json
 chmod +x deploy.sh && ./deploy.sh <TV_IP>   # Optional one-command SSH install for development
 ```
 

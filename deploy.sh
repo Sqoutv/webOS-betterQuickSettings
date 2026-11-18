@@ -5,8 +5,8 @@ set -euo pipefail
 TV_IP="${1:-${TV_IP:-192.168.1.94}}"
 APP_ID="mscha.g5quicksettings"
 SERVICE_ID="${APP_ID}.service"
-IPK_FILE="dist/${APP_ID}_1.0.0_all.ipk"
-REMOTE_IPK="/tmp/${APP_ID}_1.0.0_all.ipk"
+IPK_FILE="dist/${APP_ID}_1.0.1_all.ipk"
+REMOTE_IPK="/tmp/${APP_ID}_1.0.1_all.ipk"
 
 echo "[1/5] Building ${IPK_FILE}..."
 python3 build-ipk.py
