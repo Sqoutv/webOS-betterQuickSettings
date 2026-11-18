@@ -1,0 +1,27 @@
+{
+  "id": "de.custom.g5quicksettings.service",
+  "description": "G5 Quick Settings Root Bridge",
+  "services": [
+    {
+      "name": "de.custom.g5quicksettings.service",
+      "description": "G5 Quick Settings Root Bridge",
+      "commands": [
+        {
+          "name": "ping",
+          "description": "Health and elevation check",
+          "public": true
+        },
+        {
+          "name": "settings",
+          "description": "Whitelisted com.webos.settingsservice proxy",
+          "public": true
+        },
+        {
+          "name": "eim",
+          "description": "Read HDMI input status",
+          "public": true
+        }
+      ]
+    }
+  ]
+}

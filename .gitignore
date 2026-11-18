@@ -1,0 +1,10 @@
+# macOS & Editor Artifacts
+.DS_Store
+
+# Local Debug Logs & Terminal Dumps
+*.log
+*Ausgabe*.txt
+Error*.txt
+
+# Personal Research Notes
+wissensbasis.md
