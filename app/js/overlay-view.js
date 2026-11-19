@@ -33,7 +33,6 @@
       this.els = {
         panel: document.getElementById('panel'),
         backdrop: document.getElementById('backdrop'),
-        demoBadge: document.getElementById('demo-badge'),
         btnLgSettings: document.getElementById('btn-lg-settings'),
         btnConfig: document.getElementById('btn-config'),
         btnDim: document.getElementById('btn-dim'),
@@ -87,7 +86,6 @@
       };
     }
 
-    setDemoMode(enabled) { this.els.demoBadge.classList.toggle('hidden', !enabled); }
     showPanel() { this.els.panel.classList.add('is-visible'); }
     applyDimMode(mode) { document.body.setAttribute('data-dim', mode.key); this.els.dimLabel.textContent = mode.label; }
 

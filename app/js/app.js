@@ -155,7 +155,6 @@
     }
 
     start() {
-      this.view.setDemoMode(!global.Luna.isWebOS);
       this.prefs.restore();
       this.view.applyDimMode(this.prefs.getDimMode());
       this.view.applySectionOrder(this.prefs.sectionOrder);

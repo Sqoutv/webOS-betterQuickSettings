@@ -144,16 +144,6 @@ body {
   letter-spacing: -0.02em;
 }
 
-.badge {
-  font-size: 11px;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: rgba(10, 132, 255, 0.20);
-  color: var(--apple-blue);
-  border: 1px solid rgba(10, 132, 255, 0.36);
-}
-
 .header-actions {
   display: flex;
   align-items: center;
