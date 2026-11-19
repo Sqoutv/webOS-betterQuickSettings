@@ -1,12 +1,12 @@
 /**
- * Elevated Luna Service Bridge Proxy for G5 Quick Settings (LG webOS 25).
+ * Elevated Luna Service Bridge Proxy for Better Quick Settings (LG webOS).
  * Forwards whitelisted private-bus calls to com.webos.settingsservice and
  * com.webos.service.eim on behalf of the WebAppMgr overlay frontend.
  */
 'use strict';
 
 var Service = require('webos-service');
-var service = new Service('mscha.g5quicksettings.service');
+var service = new Service('com.mscha.betterquicksettings.service');
 
 var ALLOWED_SETTINGS_METHODS = {
   getSystemSettings: true,

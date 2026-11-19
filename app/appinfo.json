@@ -1,10 +1,10 @@
 {
-  "id": "mscha.g5quicksettings",
+  "id": "com.mscha.betterquicksettings",
   "version": "1.0.1",
   "vendor": "mscha",
   "type": "web",
   "main": "index.html",
-  "title": "G5 Quick",
+  "title": "Better Quick Settings",
   "appDescription": "HDR-friendly Apple Control Center quick settings overlay",
   "icon": "icon.png",
   "largeIcon": "largeIcon.png",

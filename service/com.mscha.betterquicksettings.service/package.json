@@ -1,0 +1,6 @@
+{
+  "name": "com.mscha.betterquicksettings.service",
+  "version": "1.0.1",
+  "description": "Better Quick Settings Root Bridge Service",
+  "main": "service.js"
+}

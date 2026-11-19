@@ -1,10 +1,10 @@
 {
-  "id": "mscha.g5quicksettings.service",
-  "description": "G5 Quick Settings Root Bridge",
+  "id": "com.mscha.betterquicksettings.service",
+  "description": "Better Quick Settings Root Bridge",
   "services": [
     {
-      "name": "mscha.g5quicksettings.service",
-      "description": "G5 Quick Settings Root Bridge",
+      "name": "com.mscha.betterquicksettings.service",
+      "description": "Better Quick Settings Root Bridge",
       "commands": [
         {
           "name": "ping",

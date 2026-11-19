@@ -76,12 +76,16 @@ def build():
     """Package the WebApp and bundled services into dist/<id>_<version>_all.ipk."""
     appinfo = json.loads((APP_DIR / "appinfo.json").read_text(encoding="utf-8"))
     app_id = appinfo["id"]
+    if app_id != app_id.lower():
+        raise ValueError(f"App ID must be lowercase: {app_id}")
     version = appinfo["version"]
 
     service_ids = []
     if SERVICE_DIR.exists():
         for d in sorted(SERVICE_DIR.iterdir()):
             if d.is_dir() and (d / "services.json").exists():
+                if not d.name.startswith(f"{app_id}."):
+                    raise ValueError(f"Service ID '{d.name}' must start with '{app_id}.'")
                 service_ids.append(d.name)
 
     data_entries = [
@@ -156,7 +160,7 @@ def build():
         "id": app_id,
         "version": version,
         "type": appinfo.get("type", "web"),
-        "title": "G5 Quick Settings",
+        "title": appinfo.get("title", "Better Quick Settings"),
         "appDescription": "HDR-friendly Apple Control Center quick settings overlay",
         "iconUri": "https://raw.githubusercontent.com/Sqoutv/webOS-betterQuickSettings/main/app/largeIcon.png",
         "sourceUrl": "https://github.com/Sqoutv/webOS-betterQuickSettings",
