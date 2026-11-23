@@ -6,7 +6,7 @@
 'use strict';
 
 var Service = require('webos-service');
-var service = new Service('com.mscha.betterquicksettings.service');
+var service = new Service('io.github.sqoutv.betterquicksettings.service');
 
 var ALLOWED_SETTINGS_METHODS = {
   getSystemSettings: true,

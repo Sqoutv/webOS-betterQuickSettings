@@ -1,7 +1,7 @@
 {
-  "id": "com.mscha.betterquicksettings",
-  "version": "1.0.2",
-  "vendor": "mscha",
+  "id": "io.github.sqoutv.betterquicksettings",
+  "version": "1.0.3",
+  "vendor": "Sqoutv",
   "type": "web",
   "main": "index.html",
   "title": "Better Quick Settings",

@@ -1,9 +1,9 @@
 {
-  "id": "com.mscha.betterquicksettings.service",
+  "id": "io.github.sqoutv.betterquicksettings.service",
   "description": "Better Quick Settings Root Bridge",
   "services": [
     {
-      "name": "com.mscha.betterquicksettings.service",
+      "name": "io.github.sqoutv.betterquicksettings.service",
       "description": "Better Quick Settings Root Bridge",
       "commands": [
         {

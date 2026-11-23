@@ -5,11 +5,11 @@ Note: This App is completely vibe coded. I made it for my personal use primarily
 A fast, HDR-friendly quick settings overlay for rooted **LG OLED G5** TVs (`webOS 25`) styled after Apple Control Center.
 
 ## Installation (`.ipk`)
-1. Download `com.mscha.betterquicksettings_1.0.2_all.ipk` from [Releases](https://github.com/Sqoutv/webOS-betterQuickSettings/releases).
+1. Download `io.github.sqoutv.betterquicksettings_1.0.3_all.ipk` from [Releases](https://github.com/Sqoutv/webOS-betterQuickSettings/releases).
 2. Install it normally via **webOS Dev Manager** or SSH
-3. On first launch, the app automatically elevates its bundled background service (`com.mscha.betterquicksettings.service`) via Homebrew Channel (`org.webosbrew.hbchannel.service/exec`).
+3. On first launch, the app automatically elevates its bundled background service (`io.github.sqoutv.betterquicksettings.service`) via Homebrew Channel (`org.webosbrew.hbchannel.service/exec`).
 
-Tip: Map `com.mscha.betterquicksettings` to a remote button in **Magic Mapper** for instant access over any input.
+Tip: Map `io.github.sqoutv.betterquicksettings` to a remote button in **Magic Mapper** for instant access over any input.
 
 ## Features
 - **Floating Transparent Overlay:** Opens over live HDMI/media playback (`keepAlive: true`, `<0.3s` warm relaunch via `webOSSystem.hide()`/`activate()`).
@@ -26,12 +26,12 @@ Tip: Map `com.mscha.betterquicksettings` to a remote button in **Magic Mapper** 
 
 ## Structure
 - `app/` — Vanilla HTML/CSS/JS frontend (`index.html`, `styles.css`, `luna.js`, `settings-map.js`, `preferences-store.js`, `tv-controller.js`, `spatial-navigator.js`, `overlay-view.js`, `app.js`).
-- `service/com.mscha.betterquicksettings.service/` — Bundled Node.js LS2 root proxy for `com.webos.settingsservice` and `com.webos.service.eim`.
+- `service/io.github.sqoutv.betterquicksettings.service/` — Bundled Node.js LS2 root proxy for `com.webos.settingsservice` and `com.webos.service.eim`.
 - `build-ipk.py` & `deploy.sh` — Zero-SDK `.ipk` + Homebrew manifest packager and optional SSH deploy helper.
 
 ## Build from Source & Developer Deploy
 ```bash
-python3 build-ipk.py                  # Builds dist/com.mscha.betterquicksettings_1.0.2_all.ipk + .manifest.json
+python3 build-ipk.py                  # Builds dist/io.github.sqoutv.betterquicksettings_1.0.3_all.ipk + .manifest.json
 chmod +x deploy.sh && ./deploy.sh <TV_IP>   # Optional one-command SSH install for development
 ```
 

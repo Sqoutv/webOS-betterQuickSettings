@@ -1,6 +1,6 @@
 {
-  "name": "com.mscha.betterquicksettings.service",
-  "version": "1.0.2",
+  "name": "io.github.sqoutv.betterquicksettings.service",
+  "version": "1.0.3",
   "description": "Better Quick Settings Root Bridge Service",
   "main": "service.js"
 }

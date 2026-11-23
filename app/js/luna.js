@@ -5,8 +5,8 @@
 (function (global) {
   'use strict';
 
-  var APP_ID = 'com.mscha.betterquicksettings';
-  var SERVICE_ID = 'com.mscha.betterquicksettings.service';
+  var APP_ID = 'io.github.sqoutv.betterquicksettings';
+  var SERVICE_ID = 'io.github.sqoutv.betterquicksettings.service';
   var BridgeCtor = global.WebOSServiceBridge || global.PalmServiceBridge || null;
   var isWebOS = Boolean(BridgeCtor);
 

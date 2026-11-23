@@ -106,7 +106,7 @@ def build():
         "id": app_id,
         "loc_name": appinfo.get("title", app_id),
         "package_format_version": 2,
-        "vendor": appinfo.get("vendor", "mscha"),
+        "vendor": appinfo.get("vendor", "Sqoutv"),
         "version": version,
     }
     if service_ids:
@@ -133,7 +133,7 @@ def build():
         f"Priority: optional\n"
         f"Architecture: all\n"
         f"Installed-Size: {installed_size}\n"
-        f"Maintainer: {appinfo.get('vendor', 'mscha')}\n"
+        f"Maintainer: {appinfo.get('vendor', 'Sqoutv')}\n"
         f"Description: {appinfo.get('title', app_id)}\n"
         f"webOS-Package-Format-Version: 2\n"
         f"webOS-Packager-Version: 1.12.4\n"

@@ -3,10 +3,10 @@ set -euo pipefail
 
 # Packages, installs, elevates, and launches Better Quick Settings on a rooted LG webOS TV.
 TV_IP="${1:-${TV_IP:-192.168.1.94}}"
-APP_ID="com.mscha.betterquicksettings"
+APP_ID="io.github.sqoutv.betterquicksettings"
 SERVICE_ID="${APP_ID}.service"
-IPK_FILE="dist/${APP_ID}_1.0.2_all.ipk"
-REMOTE_IPK="/tmp/${APP_ID}_1.0.2_all.ipk"
+IPK_FILE="dist/${APP_ID}_1.0.3_all.ipk"
+REMOTE_IPK="/tmp/${APP_ID}_1.0.3_all.ipk"
 
 echo "[1/5] Building ${IPK_FILE}..."
 python3 build-ipk.py
@@ -37,7 +37,7 @@ ssh "root@${TV_IP}" "
     echo 'WARNING: elevate-service not found';
   fi;
   ls-control scan-services;
-  for pid in \$(ps | awk '/com\.mscha\.betterquicksettings\.service/ && !/sh -c/ && !/awk/ {print \$1}'); do
+  for pid in \$(ps | awk '/io\.github\.sqoutv\.betterquicksettings\.service/ && !/sh -c/ && !/awk/ {print \$1}'); do
     kill \"\${pid}\" 2>/dev/null || true;
   done;
   sleep 1;
