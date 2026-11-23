@@ -2,6 +2,8 @@
 
 A fast, HDR-friendly quick settings overlay for rooted LG TVs (tested on LG G5) styled after Apple Control Center.
 
+<img width="587" height="540" alt="Bildschirmfoto 2026-11-19 um 15 26 59" src="https://github.com/user-attachments/assets/414722fd-e48a-4e42-884c-15dc24ee1bc5" />
+
 ## Installation (`.ipk`)
 1. Download `io.github.sqoutv.betterquicksettings_1.0.3_all.ipk` from [Releases](https://github.com/Sqoutv/webOS-betterQuickSettings/releases).
 2. Install it normally via **webOS Dev Manager** or SSH
