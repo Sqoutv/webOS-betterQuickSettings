@@ -1,4 +1,4 @@
-Note: This App is completely vibe coded. I made it for my personal use primarily but tested every Feature and overlooked the code. If there are any issues please report them, im happy to help! :)
+Note: This App is mostly vibe coded. I made it for my personal use primarily but tested every Feature and overlooked the code. If there are any issues please report them, im happy to help! :)
 
 # Quick Settings (webOS 25 Overlay App)
 
