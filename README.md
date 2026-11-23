@@ -1,5 +1,3 @@
-Note: This App is mostly vibe coded. I made it for my personal use primarily but tested every Feature and overlooked the code. If there are any issues please report them, im happy to help! :)
-
 # Quick Settings (webOS 25 Overlay App)
 
 A fast, HDR-friendly quick settings overlay for rooted **LG OLED G5** TVs (`webOS 25`) styled after Apple Control Center.
@@ -40,3 +38,6 @@ chmod +x deploy.sh && ./deploy.sh <TV_IP>   # Optional one-command SSH install f
 python3 -m http.server -d app 8080
 ```
 Running outside webOS enables an interactive **DEMO** mode with mocked Luna responses and arrow-key navigation.
+
+## AI Usage
+This App is mostly vibe coded. I made it for my personal use primarily but tested every Feature and overlooked the code. If there are any issues please report them, im happy to help! :)
