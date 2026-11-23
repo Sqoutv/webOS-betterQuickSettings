@@ -1,6 +1,6 @@
-# Quick Settings (webOS 25 Overlay App)
+# Better Quick Settings
 
-A fast, HDR-friendly quick settings overlay for rooted **LG OLED G5** TVs (`webOS 25`) styled after Apple Control Center.
+A fast, HDR-friendly quick settings overlay for rooted LG TVs (`tested on LG G5`) styled after Apple Control Center.
 
 ## Installation (`.ipk`)
 1. Download `io.github.sqoutv.betterquicksettings_1.0.3_all.ipk` from [Releases](https://github.com/Sqoutv/webOS-betterQuickSettings/releases).
