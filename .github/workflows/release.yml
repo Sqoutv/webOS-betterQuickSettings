@@ -1,0 +1,61 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]+"
+  workflow_dispatch:
+    inputs:
+      notes:
+        description: "Release notes (optional; auto-generated if empty)"
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Build IPK and manifest
+        run: python3 build-ipk.py
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          INPUT_NOTES: ${{ inputs.notes }}
+        run: |
+          set -euo pipefail
+          APP_ID=$(python3 -c "import json; print(json.load(open('app/appinfo.json'))['id'])")
+          VERSION=$(python3 -c "import json; print(json.load(open('app/appinfo.json'))['version'])")
+          IPK="dist/${APP_ID}_${VERSION}_all.ipk"
+          MANIFEST="dist/${APP_ID}.manifest.json"
+
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+            TAG="${GITHUB_REF_NAME}"
+            if [ "${TAG}" != "${VERSION}" ]; then
+              echo "Tag (${TAG}) does not match app/appinfo.json version (${VERSION})" >&2
+              exit 1
+            fi
+            TARGET_ARGS=()
+          else
+            TAG="${VERSION}"
+            TARGET_ARGS=(--target "${GITHUB_SHA}")
+          fi
+
+          if [ -n "${INPUT_NOTES}" ]; then
+            NOTES_ARGS=(--notes "${INPUT_NOTES}")
+          else
+            NOTES_ARGS=(--generate-notes)
+          fi
+
+          gh release create "${TAG}" "${IPK}" "${MANIFEST}" \
+            "${TARGET_ARGS[@]}" \
+            --title "${TAG}" \
+            "${NOTES_ARGS[@]}"
